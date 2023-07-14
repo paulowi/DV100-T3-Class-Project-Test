@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Libre+Baskerville:wght@700&display=swap');
+
+/* ---------------------------------------- */
+/* Global Styles */
+
+/* Fonts */
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Libre Baskerville', serif;
+}
+
+p {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+}
+
+/* Spacing */
+.full-height {
+    height: 100vh;
+}
+
+/* ---------------------------------------- */
+/* Components */
+
+button {
+    border: none;
+    padding: 16px 20px;
+    border-radius: 8px;
+    background: #18382B;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    color: white;
+}
+
+/* ---------------------------------------- */
+/* Bootstrap Component Overrides */
+
+/* Carousel */
+
+.carousel-item {
+    background-color: #E6F2E9;
+}
+
+.carousel-control-next, .carousel-control-prev {
+    top: auto;
+    right: auto;
+    left: 24px;
+    bottom: 24px;
+    width: auto;
+    background-color: white;
+    padding: 12px;
+    border-radius: 50%;
+}
+
+.carousel-control-next {
+    left: 84px;
+}
+
+.hero-image {
+    height: 90vh; 
+    position: relative;
+    bottom: -100px;
+}
