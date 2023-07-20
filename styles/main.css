@@ -34,6 +34,23 @@ button {
 /* ---------------------------------------- */
 /* Bootstrap Component Overrides */
 
+/* Navigation */
+
+.nav-link {
+    font-family: 'Lato', sans-serif;
+    color: rgba(0, 0, 0, 0.60);
+}
+
+.nav-link:hover {
+    color: #18382B;
+}
+
+.nav-link.active {
+    border-bottom: 2px solid #18382B;
+    color: #18382B;
+}
+
+
 /* Carousel */
 
 .carousel-item {
@@ -53,6 +70,31 @@ button {
 
 .carousel-control-next {
     left: 84px;
+}
+
+/* Card */
+
+.card {
+    border-radius: 150px 150px 12px 12px;
+    background: #F3F3F3;
+    text-align: center;
+    height: 440px;
+    border: none;
+}
+
+.card-img-top {
+    width:auto;
+    height:320px;
+    margin: auto;
+    transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1); 
+}
+
+.card-img-top.small {
+    height:200px;
+}
+
+.card-text {
+    color: #18382B;
 }
 
 /* ---------------------------------------------------------------- */
