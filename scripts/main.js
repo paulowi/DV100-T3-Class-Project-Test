@@ -9,7 +9,8 @@ const arrPlants = [
     description: "Graceful and lush, this charming indoor plant boasts glossy, emerald-green leaves that effortlessly brighten any space.",
     image: "plant1.png",
     lightAmount: "low",
-    addedDate: "2023-03-25"
+    addedDate: "2023-03-25",
+    origin: "Texas"
   },
   {
     name: "White Sprite Succulent",
@@ -17,7 +18,8 @@ const arrPlants = [
     description: "Delicate and captivating, this rare succulent showcases a mesmerizing silver-white hue that gracefully adorns its petite, fleshy leaves.",
     image: "plant2.png",
     lightAmount: "bright",
-    addedDate: "2023-05-01"
+    addedDate: "2023-05-01",
+    origin: "China"
   },
   {
     name: "Snake Plant",
@@ -25,7 +27,8 @@ const arrPlants = [
     description: "Boasting tall, sleek, and sword-like leaves, this botanical marvel adds a touch of modern flair to any setting.",
     image: "plant3.png",
     lightAmount: "low",
-    addedDate: "2023-07-04"
+    addedDate: "2023-07-04",
+    origin: "London"
   },
   {
     name: "Parlour Palm",
@@ -33,7 +36,8 @@ const arrPlants = [
     description: "With its lush, feather-like fronds and compact size, this indoor beauty makes a striking addition to any interior space.",
     image: "plant4.png",
     lightAmount: "low",
-    addedDate: "2023-04-29"
+    addedDate: "2023-04-29",
+    origin: "Pretoria"
   },
   {
     name: "Japanese Maple",
@@ -41,7 +45,8 @@ const arrPlants = [
     description: "Known for its stunning foliage that transforms with the seasons, this ornamental tree captivates with its delicate, lacy leaves in vibrant shades of red, orange, or gold.",
     image: "plant5.png",
     lightAmount: "bright",
-    addedDate: "2023-05-10"
+    addedDate: "2023-05-10",
+    origin: "Japan"
   },
 ];
 
@@ -86,6 +91,24 @@ function loadPlants(plantsToShow) {
     
     console.log(plant.name);
 
+    $.ajax({
+      type: "GET",
+      url: "https://api.openweathermap.org/data/2.5/weather?q=" + plant.origin + "&appid=0c8a911e5c7f8e5a03991afe2075de21",
+      success: function (data) {
+        tempData = data;
+        console.log(tempData);
+      },
+    }).done(function () {
+      //// Set Temperature
+      //// Will give the result with a higher value
+
+      // $(currentChild).find("#nameText").text(tempData.main.temp);
+      
+      $(currentChild).find("#originTemp").text("Origin Temp: " + Math.round(tempData.main.temp- 273) + "°C");
+     
+    
+    });
+
     // 1: Select the plants container add the plant card to it
     $("#plantsContainer").append($("#plantCardTemplate").html());
 
@@ -94,12 +117,14 @@ function loadPlants(plantsToShow) {
 
     // 3: Set the content for the current plant card from the plant array
     $(currentChild).find("#nameText").text(plant.name);
-    $(currentChild).find("#priceText").text(plant.price);
+    $(currentChild).find("#priceText").text("R" + plant.price);
     $(currentChild).find("#descriptionText").text(plant.description);
     $(currentChild).find(".card-img-top").attr('src','assets/' + plant.image);
 
     // 4: Hide the description text from the curent card
     $(currentChild).find("#descriptionText").hide();
+    $(currentChild).find("#originTemp").hide();
+
   };
 
 };
@@ -171,8 +196,30 @@ $("#plantsContainer").on('click','.card', function() {
   // Toggle the price & description text
   $(this).find("#priceText").toggle();
   $(this).find("#descriptionText").toggle();
+  $(this).find("#originTemp").toggle();
 
-  // Resize the image to fit the additonal content
+  // Resize the image to fit the additional content
   $(this).find(".card-img-top").toggleClass("small");
 
 });
+
+// https://api.openweathermap.org/data/2.5/weather?q=Pretoria&appid=0c8a911e5c7f8e5a03991afe2075de21
+
+// $(document).ready(function(){
+//   var $newTemp = $("#temp");
+  
+//   $.ajax({
+//     type: "GET",
+//     url: "https://api.openweathermap.org/data/2.5/weather?q=Texas&appid=0c8a911e5c7f8e5a03991afe2075de21",
+//     success: function (data) {
+//       temp = data;
+//       console.log(temp);
+//     },
+//   }).done(function () {
+//     // Set Temperature
+//     $newTemp.html(temp.main.temp + " &degC");
+  
+//   });
+
+// })
+
