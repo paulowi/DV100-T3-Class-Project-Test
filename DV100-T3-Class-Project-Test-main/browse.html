@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plant Shop - Browse</title>
+
+    <!-- Style Sheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body>
+
+    <!-- ------------------------------------------------------------------------------------------------ -->
+    <!-- Nav Bar -->
+
+    <nav class="navbar fixed-top">
+      <div class="container">
+        
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+          <img src="assets/Logo.svg" alt="Logo" height="32">
+        </a>
+
+        <!-- Nav Items -->
+        <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="browse.html">Browse</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="wishlist.html">Wishlist</a>
+            </li>
+          </ul>
+
+      </div>
+    </nav>
+
+    <div class="container mt-5 pt-5">
+
+        <!-- Header -->
+        <h2>Browse Plants</h2>
+        <h5 id="temp" class="priMed fs04 italics">Sunny Weather</h5>
+        <!-- ---------------------------------------------------------------------------------------------------- -->
+        <!-- Filters and Sorts -->
+
+        <div class="row align-items-center mt-4">
+
+          <!-- Filter Radio Buttons -->
+
+          <div class="btn-group col-auto" role="group">
+            <input type="radio" class="btn-check" name="filterRadio" id="allPlantsFilter" value="" autocomplete="off" checked>
+            <label class="btn btn-outline-success" for="allPlantsFilter">All Plants</label>
+          
+            <input type="radio" class="btn-check" name="filterRadio" id="brightLightFilter" autocomplete="off" value="low">
+            <label class="btn btn-outline-success" for="brightLightFilter"><i class="bi-brightness-high"></i> Bright Light</label>
+          
+            <input type="radio" class="btn-check" name="filterRadio" id="lowLightFilter" autocomplete="off" value="bright">
+            <label class="btn btn-outline-success" for="lowLightFilter"><i class="bi-brightness-low"></i> Low Light</label>
+          </div>
+
+          <!-- Sorting Radio Buttons -->
+
+          <div class="btn-group col-auto" role="group">
+            <input type="radio" class="btn-check" name="sortRadio" id="defaultSort" value="date added" autocomplete="off" checked>
+            <label class="btn btn-outline-secondary" for="defaultSort"><i class="bi bi-calendar4"></i> Newset to Oldest</label>
+          
+            <input type="radio" class="btn-check" name="sortRadio" id="priceSort" value="low to high" autocomplete="off">
+            <label class="btn btn-outline-secondary" for="priceSort"><i class="bi bi-sort-down-alt"></i> Price: Low to High</label>
+          </div>
+        </div>
+
+        <!-- ---------------------------------------------------------------------------------------------------- -->
+        <!-- Plants List Cards -->
+
+        <div class="row py-5 gy-3" id="plantsContainer">
+
+          <!-- Plants cards are appended here -->
+
+        </div>
+        
+    </div>
+    
+    <!-- ---------------------------------------------------------------------------------------------------- -->
+    <!-- Templates -->
+
+    <template id="plantCardTemplate">
+      <div class="col-4">
+
+        <!-- Card -->
+        <div class="card">
+            <img src="assets/plant1.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h4 class="card-title" id="nameText">Ficus Tree</h4>
+              <p class="card-text" id="priceText">R320</p>
+
+              <!-- New -->
+              <p class="card-text mt-4" id="originTemp">654</p>
+
+
+              <p class="card-text mt-4" id="descriptionText">Graceful and lush, this charming indoor plant boasts glossy, emerald-green leaves that effortlessly brighten any space. Easy to care for and standing at an ideal height, our Ficus Tree is the perfect addition to elevate your interior décor.</p>
+            </div>
+          </div>
+      </div>
+    </template>
+    
+    <!-- Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="scripts/main.js"></script>
+
+  </body>
+</html>
