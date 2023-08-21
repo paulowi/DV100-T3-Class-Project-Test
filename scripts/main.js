@@ -91,6 +91,7 @@ function loadPlants(plantsToShow) {
     
     console.log(plant.name);
 
+    // Open weather API call for getting the temprature
     $.ajax({
       type: "GET",
       url: "https://api.openweathermap.org/data/2.5/weather?q=" + plant.origin + "&appid=0c8a911e5c7f8e5a03991afe2075de21",
@@ -99,11 +100,8 @@ function loadPlants(plantsToShow) {
         console.log(tempData);
       },
     }).done(function () {
-      //// Set Temperature
-      //// Will give the result with a higher value
 
-      // $(currentChild).find("#nameText").text(tempData.main.temp);
-      
+      // Set Temperature
       $(currentChild).find("#originTemp").text("Origin Temp: " + Math.round(tempData.main.temp- 273) + "°C");
      
     
@@ -222,4 +220,3 @@ $("#plantsContainer").on('click','.card', function() {
 //   });
 
 // })
-
